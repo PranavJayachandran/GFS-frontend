@@ -1,0 +1,22 @@
+<div>
+  <button (click)="back()">
+    Go back
+</button>
+</div>
+<div>
+  <input [(ngModel)]="newFolder"/>
+  <button (click)="createNewFolder()">New Folder</button>
+</div>
+
+Folders:
+<div *ngFor="let element of folderStructure.folders" (click)="changeFolder(element)">
+  {{ element }}
+</div>
+Files
+<div class="file-container">
+  <div *ngFor="let element of folderStructure.files">
+    {{ element }}
+  </div>
+</div>
+
+<app-file-upload (uploadFileEvent)="newFileUploaded()" [folderPath]="path"></app-file-upload>
